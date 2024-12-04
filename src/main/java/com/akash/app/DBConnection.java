@@ -10,7 +10,9 @@ public class DBConnection {
     private static String password = "root";
     public static Connection getConnection(){
         if (connection == null){
+            System.out.println("Connection Called");
             try {
+                Class.forName("org.postgresql.Driver");
                 connection = DriverManager.getConnection(url,userName,password);
                 System.out.println("Created Connection");
             }catch (Exception e){
